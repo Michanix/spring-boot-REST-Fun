@@ -8,7 +8,6 @@ import com.example.demo.repository.CarRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.RepresentationModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,18 +24,6 @@ public class CarController {
 
   private final CarRepository carRepository;
   private final CarResourceAssembler assembler;
-
-  @GetMapping
-  public RepresentationModel<?> root() {
-
-    RepresentationModel<?> rootResource = new RepresentationModel<>();
-
-    rootResource.add( //
-                      linkTo(methodOn(CarController.class).root()).withSelfRel(), //
-                      linkTo(methodOn(CarController.class).getCars()).withRel("cars"));
-
-    return rootResource;
-  }
 
   @GetMapping("/cars")
   public ResponseEntity<CollectionModel<EntityModel<Car>>> getCars() {

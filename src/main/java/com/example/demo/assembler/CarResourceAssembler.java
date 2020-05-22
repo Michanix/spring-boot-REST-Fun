@@ -15,8 +15,6 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @Component
 public class CarResourceAssembler implements SimpleRepresentationModelAssembler<Car> {
 
-  public CarResourceAssembler() {}
-
   @Override
   public void addLinks(EntityModel<Car> resource) {
     resource.add(
