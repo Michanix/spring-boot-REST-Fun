@@ -11,6 +11,8 @@ import java.util.Map;
 Overriding the default Error attributes
  */
 
+// TODO: handle errors on /api
+
 public class JsonErrorAttributes extends DefaultErrorAttributes {
   private @Value("${current-api-version}")
   final String curretApiversion;

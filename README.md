@@ -1,3 +1,3 @@
 <p>Repository for educational 
-purposes to learn Spring boot and how to build RESTful APIs with</p>
+purposes to learn Spring boot and the art of building RESTful APIs</p>
 <p>So far so good...</p>

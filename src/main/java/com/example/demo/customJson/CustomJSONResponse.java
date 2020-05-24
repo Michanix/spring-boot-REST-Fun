@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class CustomJSONResponse {
-    private final String code;
-    private final String status;
-    private final String message;
+  private final String code;
+  private final String status;
+  private final String message;
 }

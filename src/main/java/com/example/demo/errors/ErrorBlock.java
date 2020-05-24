@@ -15,10 +15,10 @@ public class ErrorBlock {
 
   public ErrorBlock(
           final String code, final String message, final String path, final String details) {
-    this.id = UUID.randomUUID();
-    this.code = code;
-    this.message = message;
-    this.path = path;
-    this.details = details;
+      this.id = UUID.randomUUID();
+      this.code = code;
+      this.message = message;
+      this.path = path;
+      this.details = details;
   }
 }

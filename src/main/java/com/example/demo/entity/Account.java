@@ -13,20 +13,17 @@ import java.time.temporal.ChronoUnit;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class Account {
+  //  @OneToMany
+  //  private @Embedded ProductsToSell productsToSell;
+  private final LocalDateTime created =
+          LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS); // when was customer created
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-
   private String firstname;
   private String lastname;
   private String email;
-
   @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "creditCard_id", referencedColumnName = "id")
+  @JoinColumn(name = "creditcard_id", referencedColumnName = "id")
   private CreditCard creditCard;
-
-  //  @OneToMany
-//  private @Embedded ProductsToSell productsToSell;
-  private final LocalDateTime created =
-          LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS); // when was customer created
 }

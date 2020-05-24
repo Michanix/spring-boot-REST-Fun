@@ -16,13 +16,12 @@ import java.time.temporal.ChronoUnit;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class Product {
+  private final LocalDateTime added =
+          LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS); // when the product was added
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-
   private String name;
   private String description;
   private Double price;
-  private final LocalDateTime added =
-          LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS); // when the product was added
 }

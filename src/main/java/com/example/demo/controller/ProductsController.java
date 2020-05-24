@@ -18,37 +18,37 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api")
+@RequestMapping("/products")
 public class ProductsController {
 
-  private final ProductsRepository productsRepository;
+  private final ProductsRepository repository;
   private final ProductsResourceAssembler assembler;
 
-  @GetMapping("/products")
+  @GetMapping
   public ResponseEntity<CollectionModel<EntityModel<Product>>> getProducts() {
-    return ResponseEntity.ok(assembler.toCollectionModel(productsRepository.findAll()));
+    return ResponseEntity.ok(assembler.toCollectionModel(repository.findAll()));
   }
 
-  @GetMapping("/products/{id}")
+  @GetMapping("/{id}")
   public ResponseEntity<EntityModel<Product>> getProduct(@PathVariable Long id) {
-    return productsRepository
+    return repository
             .findById(id)
             .map(assembler::toModel)
             .map(ResponseEntity::ok)
             .orElseThrow(() -> new ProductNotFoundException(id));
   }
 
-  @PostMapping("/products")
+  @PostMapping
   public ResponseEntity<EntityModel<Product>> addProduct(@RequestBody Product product) {
-    var savedProduct = productsRepository.save(Objects.requireNonNull(product));
+    var savedProduct = repository.save(Objects.requireNonNull(product));
     return ResponseEntity.created(linkTo(ProductsController.class).withSelfRel().toUri())
             .body(assembler.toModel(savedProduct));
   }
 
-  @DeleteMapping("/products/{id}")
+  @DeleteMapping("/{id}")
   public ResponseEntity<?> deleteProduct(@PathVariable Long id) {
-    if (productsRepository.existsById(id)) {
-      productsRepository.deleteById(id);
+    if (repository.existsById(id)) {
+      repository.deleteById(id);
       return new ResponseEntity<>(
               new CustomJSONResponse(
                       String.valueOf(HttpStatus.ACCEPTED.value()),

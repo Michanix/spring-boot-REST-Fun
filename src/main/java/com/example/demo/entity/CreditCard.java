@@ -14,16 +14,14 @@ The rest fields omitted for simplicity.
 @AllArgsConstructor
 @Entity
 public class CreditCard {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "id")
-  private Long id;
-
   private final String number;
   private final String cardHolder;
   private final int year;
   private final int month;
-
   @OneToOne(mappedBy = "creditCard")
   private final Account account;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
+  private Long id;
 }
