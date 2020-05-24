@@ -1,3 +1,4 @@
+/*
 package com.example.demo.assembler;
 
 import com.example.demo.controller.CarController;
@@ -26,3 +27,4 @@ public class CarResourceAssembler implements SimpleRepresentationModelAssembler<
   @Override
   public void addLinks(CollectionModel<EntityModel<Car>> resources) { }
 }
+*/

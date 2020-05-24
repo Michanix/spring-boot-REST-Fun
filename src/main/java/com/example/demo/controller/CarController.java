@@ -1,3 +1,4 @@
+/*
 package com.example.demo.controller;
 
 import com.example.demo.assembler.CarResourceAssembler;
@@ -17,9 +18,7 @@ import java.util.Objects;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
-@RestController
-@RequiredArgsConstructor
-@RequestMapping("/api")
+
 public class CarController {
 
   private final CarRepository carRepository;
@@ -61,3 +60,4 @@ public class CarController {
     }
   }
 }
+*/

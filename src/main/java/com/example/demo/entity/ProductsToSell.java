@@ -1,12 +1,15 @@
 package com.example.demo.entity;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 
+import javax.persistence.Embeddable;
 import java.util.List;
 
-@Getter
+@Data
+@Embeddable
 @AllArgsConstructor
-public class ProductList {
+public class ProductsToSell {
+
     private final List<Product> products;
 }

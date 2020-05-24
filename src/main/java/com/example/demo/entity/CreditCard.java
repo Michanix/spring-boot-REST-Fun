@@ -1,23 +1,29 @@
 package com.example.demo.entity;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
+import javax.persistence.*;
 
 /*
 Simple CreditCard class. With only card number, holder and expiration date fields.
 The rest fields omitted for simplicity.
  */
 
-@Embeddable
-@Getter
+@Data
 @AllArgsConstructor
+@Entity
 public class CreditCard {
-    private final @Embedded
-    CreditCardNumber cardNumber;
-    private final String cardHolder;
-    private final @Embedded
-    ExpirationDate expirationDate;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
+  private Long id;
+
+  private final String number;
+  private final String cardHolder;
+  private final int year;
+  private final int month;
+
+  @OneToOne(mappedBy = "creditCard")
+  private final Account account;
 }

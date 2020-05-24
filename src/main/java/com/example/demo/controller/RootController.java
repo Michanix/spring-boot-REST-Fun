@@ -21,7 +21,6 @@ public class RootController {
         var model = new RepresentationModel<>();
 
         model.add(linkTo(methodOn(RootController.class).root()).withSelfRel());
-        model.add(linkTo(methodOn(CarController.class).getCars()).withRel("cars"));
         model.add(linkTo(methodOn(ProductsController.class).getProducts()).withRel("products"));
 
         return ResponseEntity.ok(model);
